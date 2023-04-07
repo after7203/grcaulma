@@ -17,6 +17,7 @@ import Cart from "@/components/Cart";
 import ProductList from "@/components/ProductList";
 import CompareProducts from "@/components/CompareProducts";
 import EstimationSearchBar from "@/components/EstimationSearchBar";
+import Head from "next/head";
 
 const Estimation = () => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const Estimation = () => {
     router.query.product ? JSON.parse(router.query.product as string).name : ""
   );
   const setSearch = (search: string) => {
+    // console.log("setSearch called" + search);
     _setSearch(search);
     setInput("");
   };
@@ -56,6 +58,14 @@ const Estimation = () => {
   //   console.log();
   // }, []);
   useEffect(() => {
+    if (router.query.parts) {
+      (JSON.parse(router.query.parts as string) as ProdType[]).forEach(
+        (prod) => {
+          cart[prod.category].set(prod._id, { ...prod, count: 1 });
+        }
+      );
+      cart.service = { ...Service.basic, count: 1 };
+    }
     setCategory(
       router.query.product
         ? JSON.parse(router.query.product as string).category
@@ -69,6 +79,7 @@ const Estimation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query]);
   useEffect(() => {
+    // console.log(search);
     movePage(1);
     if (products.length > 0) {
       let result: ProdType[];
@@ -108,7 +119,7 @@ const Estimation = () => {
   //   console.log(Object.values(cart));
   // }, [cart]);
   useEffect(() => {
-    setSearch("");
+    setFilter([]);
     // console.log(category);
   }, [category]);
   const toggleFilter = (id: string) => {
@@ -136,7 +147,10 @@ const Estimation = () => {
     setPage(p);
   };
   return (
-    <div className="mt-10 flex w-[1260px] space-x-3">
+    <div className="mt-10 flex h-[1096px] w-[1260px] space-x-3">
+      <Head>
+        <title>PC견적 : 글카얼마</title>
+      </Head>
       <div className="flex w-[800px] flex-col">
         {/* 검색창 */}
         <EstimationSearchBar
@@ -266,7 +280,7 @@ const Estimation = () => {
           )}
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => {
             const p = Math.floor((page - 1) / 10) * 10 + n;
-            if (resultProducts.length > p * 30)
+            if (resultProducts.length > (p - 1) * 30)
               return (
                 <div
                   className="mb-[1px] flex h-7 w-7 items-center justify-center rounded-md border-gray-400 text-sm text-gray-700 hover:cursor-pointer hover:underline data-[cur]:border data-[cur]:font-bold"
@@ -301,7 +315,10 @@ const Estimation = () => {
       </div>
       <Cart
         category={category}
-        setCategory={setCategory}
+        setCategory={(category) => {
+          setCategory(category);
+          setSearch("");
+        }}
         cart={cart}
         setCart={setCart}
       />

@@ -1,4 +1,3 @@
-import { ProdType } from "@/pages/api/products";
 import { RootState } from "@/store";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +9,7 @@ import Logo from "/assets/logo.png";
 import LogoText from "/assets/logo_text.png";
 import { module_products } from "@/store/products";
 import Router from "next/router";
+import { ProdType } from "@/types";
 
 const Header = () => {
   const products = useSelector((state: RootState) => state.products);
@@ -17,6 +17,7 @@ const Header = () => {
   const [input, setInput] = useState<string>("");
   const onSearch = (product: ProdType) => {
     setInput("");
+    console.log(product);
     Router.push({
       pathname: "/estimation",
       query: { product: JSON.stringify(product) },

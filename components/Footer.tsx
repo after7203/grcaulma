@@ -1,9 +1,15 @@
 import Image from "next/image";
 import Logo from "/assets/logo-gray-scale.png";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const router = useRouter();
   return (
-    <footer className="flex w-full justify-center p-10">
+    <footer
+      className={`flex w-full justify-center p-10 ${
+        router.pathname.split("/")[1] === "recommend" && "date-dark bg-zinc-800"
+      }`}
+    >
       <div className="flex w-[1260px] space-x-10">
         <Image src={Logo} alt={"로고"} className="object-none" />
         <div className="flex w-[400px] flex-shrink-0 flex-col text-xs text-gray-500">

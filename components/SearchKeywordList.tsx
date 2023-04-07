@@ -1,6 +1,5 @@
 import { regEscape } from "@/libs/reg";
-import { ProdType } from "@/pages/api/products";
-import { useEffect } from "react";
+import { ProdType } from "@/types";
 
 type PropsType = {
   prods: ProdType[];

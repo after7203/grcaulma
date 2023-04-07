@@ -1,6 +1,6 @@
+import { ProdType } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { ProdType } from "@/pages/api/products";
 
 const initialState: ProdType[] = [];
 

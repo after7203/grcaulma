@@ -19,7 +19,7 @@ const Cart = ({ category, setCategory, cart, setCart }: CartProps) => {
       className="flex h-full w-[400px] flex-shrink-0 flex-grow flex-col border border-gray-900 bg-gray-100"
       id="Cart"
     >
-      <div className="flex-1">
+      <div className="flex-1 overflow-auto">
         <div className="flex justify-center p-2 font-extrabold text-gray-800">
           견적카트
         </div>
@@ -291,7 +291,10 @@ const Cart = ({ category, setCategory, cart, setCart }: CartProps) => {
           </strong>
         </div>
         <div className="flex justify-end">
-          <div className="flex items-center justify-center border bg-red-600 py-[6px] px-5 font-extrabold text-white duration-300 hover:cursor-pointer hover:bg-red-700">
+          <div
+            className="flex items-center justify-center border bg-red-600 py-[6px] px-5 font-extrabold text-white duration-300 hover:cursor-pointer hover:bg-red-700"
+            onClick={() => alert("죄송합니다 미구현기능입니다")}
+          >
             주문하기
           </div>
         </div>

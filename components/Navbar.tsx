@@ -8,12 +8,14 @@ const Navbar = () => {
           PC견적
         </div>
       </Link>
-      <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
-        용도별추천견적
-      </div>
-      <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
+      <Link href={"/recommend/office"}>
+        <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
+          용도별추천견적
+        </div>
+      </Link>
+      {/* <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
         글카별추천견적
-      </div>
+      </div> */}
       <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
         가격그래프
       </div>
