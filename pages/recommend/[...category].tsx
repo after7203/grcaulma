@@ -1,5 +1,5 @@
-import OfficeMain from "assets/office.png";
 import Image from "next/image";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import recommend_sets from "@/data/recommend";
 import { RootState } from "@/store";
@@ -39,6 +39,9 @@ const Category = () => {
   }, [router]);
   return (
     <>
+      <Head>
+        <title>추천견적 : 글카얼마</title>
+      </Head>
       {router.query.category && (
         <div className="flex w-full flex-col items-center bg-zinc-900 pb-10">
           <div className="flex w-full justify-evenly bg-gray-800 py-2 font-bold text-gray-100">

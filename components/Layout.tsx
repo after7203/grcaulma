@@ -1,13 +1,18 @@
 import Footer from "./Footer";
 import Header from "./Header";
+import AsideMenu from "./AsideMenu";
+import { useEffect } from "react";
 
 type ComponentProps = { children: React.ReactNode };
 
 const Layout = ({ children }: ComponentProps) => {
   return (
-    <div>
+    <div className="whitespace-pre-wrap">
       <Header />
-      <main className="flex justify-center">{children}</main>
+      <div>
+        <AsideMenu />
+        <main className="flex justify-center">{children}</main>
+      </div>
       <Footer />
     </div>
   );
