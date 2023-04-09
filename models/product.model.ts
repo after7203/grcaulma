@@ -1,4 +1,4 @@
-import { ProdType } from "@/pages/api/products";
+import { ProdType } from "@/types";
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema<ProdType>({
