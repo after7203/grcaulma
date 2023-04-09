@@ -1,9 +1,14 @@
 import Image from "next/image";
 import router from "next/router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Carousel = () => {
   const [page, setpage] = useState<number>(0);
+  const refCarousel = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    refCarousel.current &&
+      (refCarousel.current.style.transform = `translateX(-${1260 * page}px)`);
+  }, [page]);
   return (
     <div className="flex h-[420px] w-full justify-center bg-slate-100">
       <div className="flex w-[1260px] flex-col items-center justify-center">
@@ -28,9 +33,7 @@ const Carousel = () => {
         <div className="relative flex h-[330px] w-full justify-center">
           {/* 캐러셀 콘텐츠 */}
           <div className="w-full overflow-hidden">
-            <div
-              className={`flex duration-200 translate-x-[${-1260 * page}px]`}
-            >
+            <div className={`flex duration-200`} ref={refCarousel}>
               <div
                 className="w-[1260px] shrink-0"
                 onClick={() => router.push("/recommend/office")}

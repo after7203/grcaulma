@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nivo/line": "^0.80.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@types/node": "18.14.6",

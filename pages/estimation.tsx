@@ -1,4 +1,3 @@
-import SearchKeywordList from "@/components/SearchKeywordList";
 import { regEscape } from "@/libs/reg";
 import { RootState } from "@/store";
 import { useEffect, useState } from "react";

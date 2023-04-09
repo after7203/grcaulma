@@ -1,7 +1,6 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import AsideMenu from "./AsideMenu";
-import { useEffect } from "react";
 
 type ComponentProps = { children: React.ReactNode };
 
