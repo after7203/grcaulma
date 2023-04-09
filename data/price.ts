@@ -531,7 +531,7 @@ const price = [
   },
 ];
 
-const names = Object.values(price).map((value) => value.id);
+// const names = Object.values(price).map((value) => value.id);
 
 // const price = {
 //   "GTX 1660 SUPER": [38, 29, 28, 27, 28, 29, 28, 30, 29, 30, 29, 30],

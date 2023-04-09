@@ -21,9 +21,11 @@ const Navbar = () => {
           가격그래프
         </div>
       </Link>
-      <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
-        글카성능순위
-      </div>
+      <Link href={"/rank"}>
+        <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
+          글카성능순위
+        </div>
+      </Link>
       <div className="flex justify-center font-bold text-slate-900 hover:cursor-pointer hover:underline">
         자유게시판
       </div>
