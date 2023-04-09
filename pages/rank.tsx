@@ -5,7 +5,7 @@ const rank = () => {
   return (
     <>
       <Head>
-        <title>가격그래프 : 글카얼마</title>
+        <title>성능순위 : 글카얼마</title>
       </Head>
       <div className="flex w-[1260px] flex-col rounded-lg border">
         <div className="mb-5 border-b px-7 py-4 font-bold text-gray-800">
