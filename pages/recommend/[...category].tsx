@@ -15,7 +15,7 @@ const Category = () => {
   const [sort, setSort] = useState<"low" | "high" | "new">("low");
   const [category, setCategory] =
     useState<keyof typeof recommend_sets>("office");
-  const products = useSelector((state: RootState) => state.products);
+  //const products = useSelector((state: RootState) => state.products);
   useEffect(() => {
     if (router.query.category) {
       if (router.query.category.length === 1) {
@@ -45,6 +45,26 @@ const Category = () => {
     <>
       <Head>
         <title>추천견적 : 글카얼마</title>
+        <link
+          rel="preload"
+          href="/_next/image?url=%2Foffice.webp&w=1920&q=75"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/_next/image?url=%2Fgaming_lol.webp&w=1920&q=75"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/_next/image?url=%2Fgaming_pubg.webp&w=1920&q=75"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="/_next/image?url=%2Fgaming_cyberpunk.webp&w=1920&q=75"
+          as="image"
+        />
       </Head>
       {router.query.category && (
         <div className="flex w-full flex-col items-center bg-zinc-900 pb-10">
@@ -143,7 +163,7 @@ const Category = () => {
                 "_"
               )} PC DESC 사진`}
               fill
-              quality={30}
+              quality={75}
               className={`!static mb-5 !h-auto object-contain`}
             />
             <div className="mb-5 flex h-[40px] w-full space-x-[-1px] text-sm text-gray-600">
@@ -180,7 +200,8 @@ const Category = () => {
               <div className="box-content flex-1 items-center justify-center border-b border-gray-400" />
             </div>
             <div className="grid grid-cols-4 gap-6">
-              {products.length &&
+              {
+                //products.length &&
                 recommend_sets[category]
                   ?.sort((a, b) => {
                     switch (sort) {
@@ -282,7 +303,8 @@ const Category = () => {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ))
+              }
             </div>
           </div>
         </div>
