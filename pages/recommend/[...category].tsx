@@ -5,6 +5,10 @@ import recommend_sets from "@/data/recommend";
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 import Router, { useRouter } from "next/router";
+// import img_office from "@/public/office.png";
+// import img_cyberpunk from "@/public/gaming_cyberpunk.webp";
+// import img_pubg from "@/public/gaming_pubg.webp";
+// import img_lol from "@/public/gaming_lol.webp";
 
 const Category = () => {
   const router = useRouter();
@@ -134,10 +138,13 @@ const Category = () => {
               }
             })()}
             <Image
-              src={`/${(router.query.category as string[]).join("_")}.png`}
-              alt={`${router.query.category[0]}PC DESC 사진`}
+              src={`/${(router.query.category as string[]).join("_")}.webp`}
+              alt={`${(router.query.category as string[]).join(
+                "_"
+              )} PC DESC 사진`}
               fill
-              className="!static mb-5 !h-auto object-contain"
+              quality={30}
+              className={`!static mb-5 !h-auto object-contain`}
             />
             <div className="mb-5 flex h-[40px] w-full space-x-[-1px] text-sm text-gray-600">
               <div

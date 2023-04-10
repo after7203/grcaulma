@@ -42,6 +42,7 @@ const Carousel = () => {
                   src={"/office_main.png"}
                   alt={"가정용/사무용PC"}
                   fill
+                  quality={100}
                   className="!static !h-auto object-contain hover:cursor-pointer hover:shadow-[5px_8px_9px_rgba(0,0,0,0.14)]"
                 />
               </div>
@@ -54,6 +55,7 @@ const Carousel = () => {
                     src={`/lol.jpeg`}
                     alt={`lol`}
                     fill
+                    priority
                     className={`!static !w-auto object-contain`}
                   />
                   <div className="absolute bottom-0 flex w-full flex-1 flex-col items-center justify-center bg-white py-2">
@@ -71,6 +73,7 @@ const Carousel = () => {
                     src={`/pubg.jpeg`}
                     alt={`pubg`}
                     fill
+                    priority
                     className={`!static !w-auto object-contain`}
                   />
                   <div className="absolute bottom-0 flex w-full flex-1 flex-col items-center justify-center bg-white py-2">
@@ -90,6 +93,7 @@ const Carousel = () => {
                     src={`/cyberpunk.jpg`}
                     alt={`cyberpunk`}
                     fill
+                    priority
                     className={`!static !w-auto object-cover`}
                   />
                   <div className="absolute bottom-0 flex w-full flex-1 flex-col items-center justify-center bg-white py-2">

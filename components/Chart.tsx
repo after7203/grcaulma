@@ -8,9 +8,10 @@ type propsType = {
       y: number;
     }[];
   }[];
+  useMesh?: boolean;
 };
 
-const Chart = ({ price }: propsType) => {
+const Chart = ({ price, useMesh = true }: propsType) => {
   return (
     <ResponsiveLine
       data={price}
@@ -50,7 +51,7 @@ const Chart = ({ price }: propsType) => {
       pointBorderColor={{ from: "serieColor" }}
       pointLabelYOffset={-12}
       enableCrosshair={false}
-      useMesh={true}
+      useMesh={useMesh}
       legends={[
         {
           anchor: "bottom-right",
