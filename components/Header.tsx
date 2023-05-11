@@ -30,7 +30,7 @@ const Header = () => {
     if (!loading) {
       applyProducts(data.products);
     }
-  }, [data.products, loading]);
+  }, [data, loading]);
   // const products = useSelector((state: RootState) => state.products);
   // const dispatch = useDispatch();
   const [input, setInput] = useState<string>("");
