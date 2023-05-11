@@ -2,7 +2,6 @@ import Image from "next/image";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import recommend_sets from "@/data/recommend";
-import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 import Router, { useRouter } from "next/router";
 // import img_office from "@/public/office.png";
