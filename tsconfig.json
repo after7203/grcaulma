@@ -18,6 +18,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "util/scrap.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "util/scrap.js",
+    "pages/api/graphql.js"
+  ],
   "exclude": ["node_modules"]
 }
