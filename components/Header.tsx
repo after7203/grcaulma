@@ -27,6 +27,7 @@ const Header = () => {
   const { loading, error, data } = useQuery(GET_PRODUCTS);
   const products: ProdType[] = useReactiveVar(applyProducts);
   useEffect(() => {
+    console.log(loading);
     if (!loading) {
       applyProducts(data.products);
     }
