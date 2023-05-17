@@ -137,7 +137,6 @@ const Cart = ({ category, setCategory, cart, setCart }: CartProps) => {
                   return (
                     <div
                       className="flex h-[32px] items-center px-3 hover:bg-gray-100"
-                      key={tier}
                       onClick={() =>
                         setSelectService(Service[tier as keyof typeof Service])
                       }

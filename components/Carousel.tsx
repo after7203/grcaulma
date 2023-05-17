@@ -10,7 +10,7 @@ const Carousel = () => {
       (refCarousel.current.style.transform = `translateX(-${1260 * page}px)`);
   }, [page]);
   return (
-    <div className="flex h-[420px] w-[100vw] justify-center bg-slate-100">
+    <div className="flex h-[420px] w-full justify-center bg-slate-100">
       <div className="flex w-[1260px] flex-col items-center justify-center">
         <div className="mb-5 flex w-full justify-center space-x-20 text-stone-600">
           <div

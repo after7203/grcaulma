@@ -2,8 +2,11 @@ import Carousel from "@/components/Carousel";
 import Chart from "@/components/Chart";
 import performance from "@/data/performance";
 import price from "@/data/price";
+import { Inter } from "next/font/google";
 import Head from "next/head";
 import router from "next/router";
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -11,9 +14,9 @@ export default function Home() {
       <Head>
         <title>글카얼마 : 그래픽카드 시세가 궁금해?</title>
       </Head>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col">
         <Carousel />
-        <div className="my-5 flex h-[400px] w-[1280px] space-x-5">
+        <div className="my-5 flex h-[400px] space-x-5">
           <div
             className="h-full w-[60%] border hover:cursor-pointer hover:shadow-lg"
             onClick={() => router.push("/pricegraph")}

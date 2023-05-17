@@ -1,3 +1,4 @@
+import { RootState } from "@/store";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -6,50 +7,29 @@ import Navbar from "./Navbar";
 import SearchKeywordList from "./SearchKeywordList";
 import Logo from "/assets/logo.png";
 import LogoText from "/assets/logo_text.png";
+import { module_products } from "@/store/products";
 import Router from "next/router";
 import { ProdType } from "@/types";
-import { gql, makeVar, useQuery, useReactiveVar } from "@apollo/client";
-import { applyProducts } from "@/store/products";
 
 const Header = () => {
-  const GET_PRODUCTS = gql`
-    query GetProducts {
-      products {
-        _id
-        name
-        imgSrc
-        type
-        price
-        category
-      }
-    }
-  `;
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
-  const products: ProdType[] = useReactiveVar(applyProducts);
-  useEffect(() => {
-    console.log(loading);
-    if (!loading) {
-      applyProducts(data.products);
-    }
-  }, [data, loading]);
-  // const products = useSelector((state: RootState) => state.products);
-  // const dispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.products);
+  const dispatch = useDispatch();
   const [input, setInput] = useState<string>("");
   const onSearch = (product: ProdType) => {
     setInput("");
-    // console.log(product);
+    console.log(product);
     Router.push({
       pathname: "/estimation",
       query: { product: JSON.stringify(product) },
     });
   };
-  // useEffect(() => {
-  //   (async () => {
-  //     const { products } = await (await fetch("/api/products")).json();
-  //     await dispatch(module_products.initailize(products));
-  //   })();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      const { products } = await (await fetch("/api/products")).json();
+      await dispatch(module_products.initailize(products));
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // useEffect(() => {
   //   console.log(products);
   // }, [products]);

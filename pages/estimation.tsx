@@ -1,4 +1,5 @@
 import { regEscape } from "@/libs/reg";
+import { RootState } from "@/store";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -16,16 +17,10 @@ import ProductList from "@/components/ProductList";
 import CompareProducts from "@/components/CompareProducts";
 import EstimationSearchBar from "@/components/EstimationSearchBar";
 import Head from "next/head";
-import { useReactiveVar } from "@apollo/client";
-import { applyProducts } from "@/store/products";
 
 const Estimation = () => {
   const router = useRouter();
-  // const products = useSelector((state: RootState) => state.products);
-  const products: ProdType[] = useReactiveVar(applyProducts);
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
+  const products = useSelector((state: RootState) => state.products);
   const [category, setCategory] = useState<Category>(
     router.query.product
       ? JSON.parse(router.query.product as string).category

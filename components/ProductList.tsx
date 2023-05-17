@@ -1,9 +1,8 @@
+import { RootState } from "@/store";
 import { CartType, CartItem, ProdType } from "@/types";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
-import { useReactiveVar } from "@apollo/client";
-import { applyProducts } from "@/store/products";
 
 type PropProductList = {
   resultProducts: ProdType[];
@@ -22,8 +21,7 @@ const ProductList = ({
   cart,
   setCart,
 }: PropProductList) => {
-  // const products = useSelector((state: RootState) => state.products);
-  const products: ProdType[] = useReactiveVar(applyProducts);
+  const products = useSelector((state: RootState) => state.products);
   return (
     <div
       className="h-[900px] overflow-y-scroll border border-t-0 border-b-0 border-gray-900"
