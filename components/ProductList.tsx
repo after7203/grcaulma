@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
 
 type PropProductList = {
+  loading: boolean;
   resultProducts: ProdType[];
   page: number;
   compareList: ProdType[];
@@ -14,6 +15,7 @@ type PropProductList = {
 };
 
 const ProductList = ({
+  loading,
   resultProducts,
   page,
   compareList,
@@ -27,7 +29,7 @@ const ProductList = ({
       className="h-[900px] overflow-y-scroll border border-t-0 border-b-0 border-gray-900"
       id="itemList"
     >
-      {products.length > 0 ? (
+      {!loading ? (
         resultProducts.length > 0 ? (
           resultProducts
             .slice((page - 1) * 30 + 0, (page - 1) * 30 + 29)

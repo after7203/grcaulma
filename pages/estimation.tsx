@@ -41,6 +41,7 @@ const Estimation = () => {
   const [categorizedProducts, setCategorizedProducts] = useState<ProdType[]>(
     []
   );
+  const [loading, setloading] = useState<boolean>(true);
   const [resultProducts, setResultProducts] = useState<ProdType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [compareList, setCompareList] = useState<ProdType[]>([]);
@@ -108,6 +109,7 @@ const Estimation = () => {
       }
       // console.log(result);
       setResultProducts([...result]);
+      setloading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products, search, category, sort, filter]);
@@ -239,6 +241,7 @@ const Estimation = () => {
         </div>
         {/* 아이템목록 */}
         <ProductList
+          loading={loading}
           resultProducts={resultProducts}
           page={page}
           compareList={compareList}
